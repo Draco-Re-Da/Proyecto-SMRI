@@ -1,0 +1,90 @@
+.slide{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.slide img{
+    height: 65vh;
+    width: 20%;
+}
+/* Index */
+
+.encabezado-index{
+    background-color: #ebebec;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mb-3{
+    margin-top: 20px;
+}
+
+.pie-index{
+    background-color: rgb(193, 233, 247);
+    margin-top: 135px;
+}
+
+/* Resto Del Sistema De Informacion */
+
+.encabezado{
+    background-color: #ebebec;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: left;
+}
+p{
+    margin: 0;
+}
+
+.pie{
+    background-color: rgb(193, 233, 247);
+    margin-top: 80px;
+}
+
+.rol{
+    width: auto;
+    height: 70px;
+    align-items: right;
+}
+
+.titulo{
+    width: 1300px;
+}
+
+.btn-primary{
+    width: 100px;
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-lg{
+    margin-left: 5px;
+}
+
+.fecha{
+    display:flex;
+    justify-content: center;
+}
+
+.form-select{
+    width: 500px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.resultado{
+    margin-top: 30px;
+    display:flex;
+    justify-content: center;
+}
+
+.alert-primary{
+    margin-left: 100px;
+    margin-right: 100px;
+}

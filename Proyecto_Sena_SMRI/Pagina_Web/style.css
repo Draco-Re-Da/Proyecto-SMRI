@@ -1,0 +1,19 @@
+.slide{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.slide img{
+    height: 65vh;
+    width: 20%;
+}
+
+.encabezado{
+    background-color: #ebebec;
+}
+
+.pie{
+    background-color: rgb(193, 233, 247);
+    margin-top: 10px;
+}
+
