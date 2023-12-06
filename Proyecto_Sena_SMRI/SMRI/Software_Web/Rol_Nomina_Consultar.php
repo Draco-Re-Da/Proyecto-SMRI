@@ -8,19 +8,13 @@
         <div class="encabezado">
             <img class="rol" src="Imagenes/rol_nomina.png" alt=""><h1 class="titulo">Auxiliar De Nómina</h1><button type="submit" class="btn btn-primary">Salir</button>
         </div>
-    </head>
-    <center><h1>Consultar Un Empleado</h1></center>
-    <nav>
-        <ul class="nav justify-content-center">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="Rol_Nomina_Consultar.html">Consultar</a>
-                </li>
-            </ul>
-    </nav>
-    <body>
-        <!_ Conexión Con La Base De Datos _>
+
         <?php
+
+            function ejecuta_consulta($labusqueda){
+
+            //$busqueda = $_GET['buscar'];
+
             require("datos_conexion_bbdd.php");
 
             $conexion = new mysqli($db_host, $db_usuario, $db_contrasenna, $db_nombre);
@@ -32,12 +26,54 @@
 
             mysqli_set_charset($conexion, "utf8");
 
+            $consulta = "SELECT * FROM empleados WHERE cedula = '$labusqueda'";
+            $resultados = mysqli_query($conexion, $consulta);
+
+            while ($fila = mysqli_fetch_array($resultados, MYSQLI_ASSOC)){
+
+                echo $fila['cedula'] . " ";
+                echo $fila['primer_nombre'] . " ";
+                echo $fila['segundo_nombre'] . " ";
+                echo $fila['primer_apellido'] . " ";
+                echo $fila['segundo_apellido'] . " ";
+                echo $fila['area_trabajo'] . " ";
+
+                echo "<br>";
+
+            }
+
+            mysqli_close($conexion);
+
+        }
+
+        ?>
+
+    </head>
+    <center><h1>Consultar Un Empleado</h1></center>
+    <nav>
+        <ul class="nav justify-content-center">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="Rol_Nomina_Consultar.html">Consultar</a>
+                </li>
+            </ul>
+    </nav>
+    <body>
+        <?php
+
+        @$mibusqueda = $_GET['buscar'];
+        $mipag = $_SERVER["PHP_SELF"];
+
+        if($mibusqueda!=NULL){
+            ejecuta_consulta($mibusqueda);
+        }else{
+            echo("<form action='" . $mipag . "' method='get'><label> Ingrese la cedula del trabajador <input type='text' name='buscar'></label><input type='submit' name='enviando' value='Buscar'></form>");
+        }
 
 
         ?>
 
-
-        <main>
+        <!--<main>
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" placeholder="Ingrese la cédula a consultar" aria-label="First name">
@@ -87,7 +123,7 @@
                     Las unidades producidas son:
                 </div>
             </div>
-        </main>
+        </main>-->
 
 
 
