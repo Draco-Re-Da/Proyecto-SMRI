@@ -8,6 +8,46 @@
         <div class="encabezado">
             <img class="rol" src="Imagenes/rol_ingeniero.jpg" alt=""><h1 class="titulo">Ingeniero Jefe De Planta</h1><button type="submit" class="btn btn-primary">Salir</button>
         </div>
+
+        <?php
+
+            function ejecuta_consulta($labusqueda){
+
+            //$busqueda = $_GET['buscar'];
+
+            require("datos_conexion_bbdd.php");
+
+            $conexion = new mysqli($db_host, $db_usuario, $db_contrasenna, $db_nombre);
+
+            if (mysqli_connect_errno()){
+                echo "Fallo al conectar con la BD";
+                exit();
+            }
+
+            mysqli_set_charset($conexion, "utf8");
+
+            $consulta = "SELECT * FROM empleados WHERE cedula = '$labusqueda'";
+            $resultados = mysqli_query($conexion, $consulta);
+
+            while ($fila = mysqli_fetch_array($resultados, MYSQLI_ASSOC)){
+
+                echo $fila['cedula'] . " ";
+                echo $fila['primer_nombre'] . " ";
+                echo $fila['segundo_nombre'] . " ";
+                echo $fila['primer_apellido'] . " ";
+                echo $fila['segundo_apellido'] . " ";
+                echo $fila['area_trabajo'] . " ";
+
+                echo "<br>";
+
+            }
+
+            mysqli_close($conexion);
+
+        }
+
+        ?>
+
     </head>
     <center><h1>Consultar Un Empleado</h1></center>
     <nav>
@@ -28,25 +68,23 @@
             </ul>
     </nav>
     <body>
-        <!_ Conexión Con La Base De Datos _>
         <?php
-            require("datos_conexion_bbdd.php");
 
-            $conexion = new mysqli($db_host, $db_usuario, $db_contrasenna, $db_nombre);
+        @$mibusqueda = $_GET['buscar'];
+        $mipag = $_SERVER["PHP_SELF"];
 
-            if (mysqli_connect_errno()){
-                echo "Fallo al conectar con la BD";
-                exit();
-            }
+        if($mibusqueda!=NULL){
+            ejecuta_consulta($mibusqueda);
+        }else{
+            echo("<form action='" . $mipag . "' method='get'><label> Ingrese la cedula del trabajador <input type='text' name='buscar'></label><input type='submit' name='enviando' value='Buscar'></form>");
+        }
 
-            mysqli_set_charset($conexion, "utf8");
 
 
 
         ?>
 
-        
-        <main>
+        <!--<main>
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" placeholder="Ingrese la cédula a consultar" aria-label="First name">
@@ -96,7 +134,7 @@
                     Las unidades producidas son:
                 </div>
             </div>
-        </main>
+        </main>-->
 
 
 
