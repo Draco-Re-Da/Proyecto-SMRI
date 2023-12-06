@@ -10,6 +10,25 @@
         </div>
     </head>
     <body>
+        <!_ Conexión Con La Base De Datos _>
+        <?php
+            require("datos_conexion_bbdd.php");
+
+            $conexion = new mysqli($db_host, $db_usuario, $db_contrasenna, $db_nombre);
+
+            if (mysqli_connect_errno()){
+                echo "Fallo al conectar con la BD";
+                exit();
+            }
+
+            mysqli_set_charset($conexion, "utf8");
+
+
+
+        ?>
+
+
+
         <main>
             <form>
     <div class="row mb-3">
