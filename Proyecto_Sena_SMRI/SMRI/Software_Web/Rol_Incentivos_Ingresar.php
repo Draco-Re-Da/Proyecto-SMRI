@@ -8,6 +8,44 @@
         <div class="encabezado">
             <img class="rol" src="Imagenes/rol_incentivos.png" alt=""><h1 class="titulo">Auxiliar Incentivos</h1><button type="submit" class="btn btn-primary">Salir</button>
         </div>
+
+            <?php
+
+                //$busqueda = $_GET['buscar'];
+
+                require("datos_conexion_bbdd.php");
+
+                $conexion = new mysqli($db_host, $db_usuario, $db_contrasenna, $db_nombre);
+
+                if (mysqli_connect_errno()){
+                    echo "Fallo al conectar con la BD";
+                    exit();
+                }
+
+                mysqli_set_charset($conexion, "utf8");
+
+                $consulta = "SELECT * FROM empleados WHERE cedula = '$labusqueda'";
+                $resultados = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_array($resultados, MYSQLI_ASSOC)){
+
+                    echo $fila['cedula'] . " ";
+                    echo $fila['primer_nombre'] . " ";
+                    echo $fila['segundo_nombre'] . " ";
+                    echo $fila['primer_apellido'] . " ";
+                    echo $fila['segundo_apellido'] . " ";
+                    echo $fila['area_trabajo'] . " ";
+
+                    echo "<br>";
+
+                }
+
+                mysqli_close($conexion);
+
+            
+
+            ?>
+
     </head>
     <center><h1>Ingresar Rendimiento Empleado</h1></center>
     <nav>
