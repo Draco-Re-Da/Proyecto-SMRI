@@ -127,8 +127,8 @@
                 <div class="alert alert-primary" role="alert">
                     Las unidades producidas son:
                 </div>
-            </div> -->
-        </main>
+            </div>
+        </main>-->
 
 
 

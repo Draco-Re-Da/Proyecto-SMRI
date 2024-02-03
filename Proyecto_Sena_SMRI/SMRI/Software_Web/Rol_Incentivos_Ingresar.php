@@ -9,43 +9,6 @@
             <img class="rol" src="Imagenes/rol_incentivos.png" alt=""><h1 class="titulo">Auxiliar Incentivos</h1><button type="submit" class="btn btn-primary">Salir</button>
         </div>
 
-            <?php
-
-                //$busqueda = $_GET['buscar'];
-
-                require("datos_conexion_bbdd.php");
-
-                $conexion = new mysqli($db_host, $db_usuario, $db_contrasenna, $db_nombre);
-
-                if (mysqli_connect_errno()){
-                    echo "Fallo al conectar con la BD";
-                    exit();
-                }
-
-                mysqli_set_charset($conexion, "utf8");
-
-                $consulta = "SELECT * FROM empleados WHERE cedula = '$labusqueda'";
-                $resultados = mysqli_query($conexion, $consulta);
-
-                while ($fila = mysqli_fetch_array($resultados, MYSQLI_ASSOC)){
-
-                    echo $fila['cedula'] . " ";
-                    echo $fila['primer_nombre'] . " ";
-                    echo $fila['segundo_nombre'] . " ";
-                    echo $fila['primer_apellido'] . " ";
-                    echo $fila['segundo_apellido'] . " ";
-                    echo $fila['area_trabajo'] . " ";
-
-                    echo "<br>";
-
-                }
-
-                mysqli_close($conexion);
-
-            
-
-            ?>
-
     </head>
     <center><h1>Ingresar Rendimiento Empleado</h1></center>
     <nav>
@@ -60,109 +23,47 @@
             </ul>
     </nav>
     <body>
-        <!_ Conexión Con La Base De Datos _>
-        <?php
-            require("datos_conexion_bbdd.php");
-
-            $conexion = new mysqli($db_host, $db_usuario, $db_contrasenna, $db_nombre);
-
-            if (mysqli_connect_errno()){
-                echo "Fallo al conectar con la BD";
-                exit();
-            }
-
-            mysqli_set_charset($conexion, "utf8");
-
-
-
-        ?>
-
-        
-        <main>
+        <br>
+        <div align="center">
+        <form name="form1" method="$_GET" action="Rol_Insentivos_Insertar_Registro.php">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Ingrese la cédula a consultar" aria-label="First name">
+                    <label for="cedula"></label>
+                    Cédula <input type="text" name="cedula" id="cedula" placeholder="Ingrese Cedula">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Confirme el área de producción" aria-label="Last name">
+                    <label for="codigo_flor"></label>
+                    Código Flor <input type="text" name="codigo_flor" id="codigo_flor" placeholder="Ingrese código flor">
                 </div>
             </div>
             <br>
-            <div class="fecha">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccione El Día</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                </select>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccione El Mes</option>
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Mayo</option>
-                    <option value="6">Junio</option>
-                    <option value="7">Julio</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Septiembre</option>
-                    <option value="10">Octubre</option>
-                    <option value="11">Noviembre</option>
-                    <option value="12">Diciembre</option>
-                </select>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccione El Año</option>
-                    <option value="1">2023</option>
-                    <option value="2">2024</option>
-                    <option value="3">2025</option>
-                    <option value="4">2026</option>
-                    <option value="5">2027</option>
-                    <option value="6">2028</option>
-                    <option value="7">2029</option>
-                    <option value="8">2030</option>
-                    <option value="9">2031</option>
-                    <option value="10">2032</option>
-                    <option value="11">2033</option>
-                    <option value="12">2034</option>
-                </select>
-            </div>
-            <div class="resultado">
-                <div class="alert alert-primary" role="alert">
-                    Las horas trabajadas son:
+            <div class="row">
+            <div class="col">
+                    <label for="fecha_corte"></label>
+                    Fecha Corte <input type="text" name="fecha_corte" id="fecha_corte" placeholder="Ingrese fecha corte">
                 </div>
-                <div class="alert alert-primary" role="alert">
-                    Las unidades producidas son:
+                <div class="col">
+                    <label for="horas_trabajadas"></label>
+                    Horas Trabajadas <input type="text" name="horas_trabajadas" id="horas_trabajadas" placeholder="Ingrese horas trabajadas">
                 </div>
             </div>
-        </main>
+            <br>
+            <div class="row">
+            <div class="col">
+                    <label for="numero_invernadero"></label>
+                    Número Invernadero <input type="text" name="numero_invernadero" id="numero_invernadero" placeholder="Ingrese número invernadero">
+                </div>
+                <div class="col">
+                    <label for="unidades_cortadas"></label>
+                    Unidades Cortadas <input type="text" name="unidades_cortadas" id="unidades_cortadas" placeholder="Ingrese unidades cortadas">
+                </div>
+            </div>
+            <br>
+            <input type='submit' name='enviando' value='Enviar'>
+            <input type='submit' name='enviando' value='Cancelar'>
+        </form>
+        </div>
+
 
 
 
