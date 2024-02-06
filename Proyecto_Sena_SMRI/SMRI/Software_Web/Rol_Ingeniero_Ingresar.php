@@ -9,7 +9,7 @@
             <img class="rol" src="Imagenes/rol_ingeniero.jpg" alt=""><h1 class="titulo">Ingeniero Jefe De Planta</h1><button type="submit" class="btn btn-primary">Salir</button>
         </div>
     </head>
-    <center><h1>Ingresar Un Nuevo Empleado</h1></center>
+    <center><h1>Ingresar Nueva Planeación</h1></center>
     <nav>
         <ul class="nav justify-content-center">
             <ul class="nav nav-tabs">
@@ -28,22 +28,45 @@
             </ul>
     </nav>
     <body>
-        <!_ Conexión Con La Base De Datos _>
-        <?php
-            require("datos_conexion_bbdd.php");
-
-            $conexion = new mysqli($db_host, $db_usuario, $db_contrasenna, $db_nombre);
-
-            if (mysqli_connect_errno()){
-                echo "Fallo al conectar con la BD";
-                exit();
-            }
-
-            mysqli_set_charset($conexion, "utf8");
-
-
-
-        ?>
+    <div align="center">
+        <form name="form1" method="$_GET" action="Rol_Ingeniero_Insertar_Registro.php">
+            <div class="row">
+                <div class="col">
+                    <label for="cedula"></label>
+                    Cédula <input type="text" name="cedula" id="cedula" placeholder="Ingrese Cedula">
+                </div>
+                <div class="col">
+                    <label for="codigo_flor"></label>
+                    Código Flor <input type="text" name="codigo_flor" id="codigo_flor" placeholder="Ingrese código flor">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+            <div class="col">
+                    <label for="fecha_corte"></label>
+                    Fecha Corte <input type="text" name="fecha_corte" id="fecha_corte" placeholder="Ingrese fecha corte">
+                </div>
+                <div class="col">
+                    <label for="horas_trabajadas"></label>
+                    Horas Trabajadas <input type="text" name="horas_trabajadas" id="horas_trabajadas" placeholder="Ingrese horas trabajadas">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+            <div class="col">
+                    <label for="numero_invernadero"></label>
+                    Número Invernadero <input type="text" name="numero_invernadero" id="numero_invernadero" placeholder="Ingrese número invernadero">
+                </div>
+                <div class="col">
+                    <label for="unidades_cortadas"></label>
+                    Unidades Cortadas <input type="text" name="unidades_cortadas" id="unidades_cortadas" placeholder="Ingrese unidades cortadas">
+                </div>
+            </div>
+            <br>
+            <input type='submit' name='enviando' value='Enviar'>
+            <input type='submit' name='enviando' value='Cancelar'>
+        </form>
+        </div>
 
 
         <main>
