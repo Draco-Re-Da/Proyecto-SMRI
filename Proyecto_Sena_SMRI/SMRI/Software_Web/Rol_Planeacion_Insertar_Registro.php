@@ -2,14 +2,14 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Ingresar</title>
+        <title>Insertar Registros</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
         <div class="encabezado">
             <img class="rol" src="Imagenes/rol_planeacion.png" alt=""><h1 class="titulo">Jefe Planeación</h1><button type="submit" class="btn btn-primary">Salir</button>
         </div>
     </head>
-    <center><h1>Ingresar Una Nueva Planeación</h1></center>
+    <center><h1>Ingreso De Nuevo Registro</h1></center>
     <nav>
         <ul class="nav justify-content-center">
             <ul class="nav nav-tabs">
@@ -28,45 +28,55 @@
             </ul>
     </nav>
     <body>
-    <div align="center">
-        <form name="form1" method="$_GET" action="Rol_Planeacion_Insertar_Registro.php">
-            <div class="row">
-                <div class="col">
-                    <label for="codigo_flor"></label>
-                    Código Flor <input type="text" name="codigo_flor" id="codigo_flor" placeholder="Ingrese Codigo Flor">
-                </div>
-                <div class="col">
-                    <label for="color_flor"></label>
-                    Color Flor <input type="text" name="color_flor" id="color_flor" placeholder="Ingrese color flor">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-            <div class="col">
-                    <label for="fecha_siembra"></label>
-                    Fecha Siembra <input type="text" name="fecha_siembra" id="fecha_siembra" placeholder="Ingrese fecha siembra">
-                </div>
-                <div class="col">
-                    <label for="nombre_flor"></label>
-                    Nombre Flor <input type="text" name="nombre_flor" id="nombre_flor" placeholder="Ingrese nombre flor">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-            <div class="col">
-                    <label for="numero_invernadero"></label>
-                    Número Invernadero <input type="text" name="numero_invernadero" id="numero_invernadero" placeholder="Ingrese número invernadero">
-                </div>
-                <div class="col">
-                    <label for="unidades_campo"></label>
-                    Unidades Campo <input type="text" name="unidades_campo" id="unidades_campo" placeholder="Ingrese unidades campo">
-                </div>
-            </div>
-            <br>
-            <input type='submit' name='enviando' value='Enviar'>
-            <input type='submit' name='enviando' value='Cancelar'>
-        </form>
-        </div>
+        <?php
+
+            //$busqueda = $_GET['buscar'];
+
+            $codigo_flor = $_GET['codigo_flor'];
+            $color_flor = $_GET['color_flor'];
+            $fecha_siembra = $_GET['fecha_siembra'];
+            $nombre_flor = $_GET['nombre_flor'];
+            $numero_invernadero = $_GET['numero_invernadero'];
+            $unidades_campo = $_GET['unidades_campo'];
+
+            require("datos_conexion_bbdd.php");
+
+            $conexion = mysqli_connect($db_host, $db_usuario, $db_contrasenna, $db_nombre);
+
+            if (mysqli_connect_errno()){
+                echo "Fallo al conectar con la BD";
+                exit();
+            }
+
+            mysqli_select_db($conexion, $db_nombre) or die("No se encuentra la base de datos");
+
+            mysqli_set_charset($conexion, "utf8");
+
+            $consulta = "insert into siembra_campo_escritorio (codigo_flor, color_flor, fecha_siembra, nombre_flor, numero_invernadero, unidades_campo) values ($codigo_flor, '$color_flor', '$fecha_siembra', '$nombre_flor', $numero_invernadero, $unidades_campo)";
+
+            $resultados = mysqli_query($conexion, $consulta);
+
+            if($resultados==false){
+                echo "Error en la consulta";
+            }else{
+                echo "Datos Ingresados Correctamente <br><br>";
+
+                echo "<div class=row><div class=col>$codigo_flor</div>";
+
+                echo "<div class=row><div class=col>$color_flor</div>";
+
+                echo "<div class=row><div class=col>$fecha_siembra</div>";
+
+                echo "<div class=row><div class=col>$nombre_flor</div>";
+
+                echo "<div class=row><div class=col>$numero_invernadero</div>";
+
+                echo "<div class=row><div class=col>$unidades_campo</div>";
+            }
+
+            mysqli_close($conexion);
+
+        ?>
 
 
 
