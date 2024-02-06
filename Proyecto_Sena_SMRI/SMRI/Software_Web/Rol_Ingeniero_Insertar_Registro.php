@@ -52,7 +52,7 @@
 
             mysqli_set_charset($conexion, "utf8");
 
-            $consulta = "insert into siembra_campo_escritorio (codigo_flor, 'color_flor', 'fecha_siembra', 'nombre_flor', numero_invernadero, unidades_campo) values ($codigo_flor, $color_flor, $fecha_siembra, $nombre_flor, $numero_invernadero, $unidades_campo)";
+            $consulta = "insert into siembra_campo_escritorio (codigo_flor, color_flor, fecha_siembra, nombre_flor, numero_invernadero, unidades_campo) values ($codigo_flor, '$color_flor', '$fecha_siembra', '$nombre_flor', $numero_invernadero, $unidades_campo)";
 
             $resultados = mysqli_query($conexion, $consulta);
 
