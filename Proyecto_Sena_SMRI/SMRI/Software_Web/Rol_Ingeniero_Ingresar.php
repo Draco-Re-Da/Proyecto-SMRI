@@ -32,23 +32,23 @@
         <form name="form1" method="$_GET" action="Rol_Ingeniero_Insertar_Registro.php">
             <div class="row">
                 <div class="col">
-                    <label for="cedula"></label>
-                    Cédula <input type="text" name="cedula" id="cedula" placeholder="Ingrese Cedula">
+                    <label for="codigo_flor"></label>
+                    Código Flor <input type="text" name="codigo_flor" id="codigo_flor" placeholder="Ingrese Codigo Flor">
                 </div>
                 <div class="col">
-                    <label for="codigo_flor"></label>
-                    Código Flor <input type="text" name="codigo_flor" id="codigo_flor" placeholder="Ingrese código flor">
+                    <label for="color_flor"></label>
+                    Color Flor <input type="text" name="color_flor" id="color_flor" placeholder="Ingrese color flor">
                 </div>
             </div>
             <br>
             <div class="row">
             <div class="col">
-                    <label for="fecha_corte"></label>
-                    Fecha Corte <input type="text" name="fecha_corte" id="fecha_corte" placeholder="Ingrese fecha corte">
+                    <label for="fecha_siembra"></label>
+                    Fecha Siembra <input type="text" name="fecha_siembra" id="fecha_siembra" placeholder="Ingrese fecha siembra">
                 </div>
                 <div class="col">
-                    <label for="horas_trabajadas"></label>
-                    Horas Trabajadas <input type="text" name="horas_trabajadas" id="horas_trabajadas" placeholder="Ingrese horas trabajadas">
+                    <label for="nombre_flor"></label>
+                    Nombre Flor <input type="text" name="nombre_flor" id="nombre_flor" placeholder="Ingrese nombre flor">
                 </div>
             </div>
             <br>
@@ -58,8 +58,8 @@
                     Número Invernadero <input type="text" name="numero_invernadero" id="numero_invernadero" placeholder="Ingrese número invernadero">
                 </div>
                 <div class="col">
-                    <label for="unidades_cortadas"></label>
-                    Unidades Cortadas <input type="text" name="unidades_cortadas" id="unidades_cortadas" placeholder="Ingrese unidades cortadas">
+                    <label for="unidades_campo"></label>
+                    Unidades Campo <input type="text" name="unidades_campo" id="unidades_campo" placeholder="Ingrese unidades campo">
                 </div>
             </div>
             <br>
@@ -69,39 +69,6 @@
         </div>
 
 
-        <main>
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Ingrese Cédula Del Empleado" aria-label="First name">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Ingrese Área De Producción" aria-label="Last name">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Primer Nombre" aria-label="First name">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Segundo Nombre" aria-label="Last name">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Primer Apellido" aria-label="First name">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Segundo Apellido" aria-label="Last name">
-                </div>
-            </div>
-            <br>
-            <div class="botones">
-                <button type="button" class="btn btn-primary btn-lg">Enviar</button>
-                <button type="button" class="btn btn-secondary btn-lg">Cancelar</button>
-            </div>
-        </main>
 
 
 

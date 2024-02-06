@@ -32,12 +32,12 @@
 
             //$busqueda = $_GET['buscar'];
 
-            $cedula = $_GET['cedula'];
             $codigo_flor = $_GET['codigo_flor'];
-            $fecha_corte = $_GET['fecha_corte'];
-            $horas_trabajadas = $_GET['horas_trabajadas'];
+            $color_flor = $_GET['color_flor'];
+            $fecha_siembra = $_GET['fecha_siembra'];
+            $nombre_flor = $_GET['nombre_flor'];
             $numero_invernadero = $_GET['numero_invernadero'];
-            $unidades_cortadas = $_GET['unidades_cortadas'];
+            $unidades_campo = $_GET['unidades_campo'];
 
             require("datos_conexion_bbdd.php");
 
@@ -52,7 +52,7 @@
 
             mysqli_set_charset($conexion, "utf8");
 
-            $consulta = "insert into rendimiento_corte (cedula, codigo_flor, fecha_corte, horas_trabajadas, numero_invernadero, unidades_cortadas) values ($cedula, $codigo_flor, '$fecha_corte', $horas_trabajadas, $numero_invernadero, $unidades_cortadas)";
+            $consulta = "insert into siembra_campo_escritorio (codigo_flor, 'color_flor', 'fecha_siembra', 'nombre_flor', numero_invernadero, unidades_campo) values ($codigo_flor, $color_flor, $fecha_siembra, $nombre_flor, $numero_invernadero, $unidades_campo)";
 
             $resultados = mysqli_query($conexion, $consulta);
 
@@ -61,17 +61,17 @@
             }else{
                 echo "Datos Ingresados Correctamente <br><br>";
 
-                echo "<div class=row><div class=col>$cedula</div>";
-
                 echo "<div class=row><div class=col>$codigo_flor</div>";
 
-                echo "<div class=row><div class=col>$fecha_corte</div>";
+                echo "<div class=row><div class=col>$color_flor</div>";
 
-                echo "<div class=row><div class=col>$horas_trabajadas</div>";
+                echo "<div class=row><div class=col>$fecha_siembra</div>";
+
+                echo "<div class=row><div class=col>$nombre_flor</div>";
 
                 echo "<div class=row><div class=col>$numero_invernadero</div>";
 
-                echo "<div class=row><div class=col>$unidades_cortadas</div>";
+                echo "<div class=row><div class=col>$unidades_campo</div>";
             }
 
             mysqli_close($conexion);
