@@ -25,7 +25,7 @@
     <body>
         <br>
         <div align="center">
-        <form name="form1" method="$_GET" action="Rol_Insentivos_Insertar_Registro.php">
+        <form name="form1" method="$_GET" action="Rol_Incentivos_Insertar_Registro.php">
             <div class="row">
                 <div class="col">
                     <label for="cedula"></label>
